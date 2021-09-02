@@ -1,11 +1,11 @@
 
-const { DataTypes, ENUM } = require("sequelize");
+const { DataTypes } = require("sequelize");
 
 
 module.exports = (sequelize) => {
   
   sequelize.define(
-    'Todo',
+    'User',
     {
       id: {
         type: DataTypes.UUID,
@@ -15,12 +15,6 @@ module.exports = (sequelize) => {
       name: { type: DataTypes.STRING, allowNull: false },
       state:{
         type: DataTypes.BOOLEAN,
-    },
-
-    status:{
-type:DataTypes.ENUM("created","eliminated","pending","complete"),
-defaultValue: "created"
-
     }
     },
     // { timestamps: false }

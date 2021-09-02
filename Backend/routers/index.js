@@ -1,28 +1,9 @@
-const express = require('express');
+const { Router } = require("express");
+const express= require ("express");
 const router = express.Router();
-
-const folderControllers = require('../controllers/folderControllers');
-const todoControllers = require('../controllers/todoControllers');
-
-module.exports = function() {
-//Ruta de creacion de folder
-router.post('/new-folder',
-    folderControllers.createNewFolder
-)
-//Ruta de creacion de todo
-router.post('/new-todo',
-    todoControllers.addTodo
-)
-//Ruta de cambios de todo
-router.put('/todo/:id', 
-    todoControllers.changeStateTodo
-);
-//Ruta de eliminacion de todo
-router.delete('/todo/:id', 
-    todoControllers.deleteTodo
-);
-
-
-return router;
-
+const routerUser=require('./routerUser');
+const routerTodo=require('./routerTodo')
+module.exports=()=>{
+    router.use("/todo/user",routerUser)
+    router.use("todo/todo",routerTodo)
 }
