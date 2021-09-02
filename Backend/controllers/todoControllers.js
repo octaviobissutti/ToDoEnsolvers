@@ -20,7 +20,7 @@ exports.getAllTodo = async (req, res, next) => {
   }
   }
 
-exports.getTodo = async (req, res, next) => {
+exports.getTodoById = async (req, res, next) => {
   const { id} = req.params;
   try {
 
